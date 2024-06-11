@@ -31,6 +31,3 @@ cvcc          20                20
               80
 
 The low number '20' is explained by the fact that there are few VC words in general, and VC class 2 words in particular. 
-
-
-
