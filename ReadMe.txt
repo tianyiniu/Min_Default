@@ -29,14 +29,10 @@ high_vowels = ['IY1', 'IH1', 'UW1','UH1','IY0','IH0','UW0','UH0']
 nasal_cons = ['M','L','N','NG']
 
 
-
-
-
-
 Maj Default 
 	     training_cat1/2   training_cat3    testing_cat1/2  testing_cat3
 cvc          39                  238                32              24
-cvcvc        39                  238               32              24
+cvcvc        39                  238                32              24
 vcvc         39                  238                32              24
 cvcv           0                 238                 0              24
 -----------------
@@ -70,6 +66,3 @@ ccv                             20
 
 New segments: 
 -h final words are "mutants" of templates cvc and cvcvc
-
-
-
