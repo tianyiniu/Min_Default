@@ -9,7 +9,6 @@ cvcv           0                  99                 0              24
 total        396 + 396            396                96             96       
 
 
-
 Min Default "regular" 
 	     training_cat1/2   training_cat3    testing_cat1/2  testing_cat3
 cvc          177                  31                32              24
@@ -34,7 +33,7 @@ Maj Default
 cvc          39                  238                32              24
 cvcvc        39                  238                32              24
 vcvc         39                  238                32              24
-cvcv           0                 238                 0              24
+cvcv          0                  238                 0              24
 -----------------
 total        117 + 117           952               96             96       
 
