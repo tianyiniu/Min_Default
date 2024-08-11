@@ -1,0 +1,37 @@
+
+######## Accuracies ########
+----------- cvcc -----------
+W AH0: Acc: 1.0 Num_correct: 7 Num_total: 7
+L EY0: Acc: 1.0 Num_correct: 3 Num_total: 3
+Y IY0: Acc: -1 Num_correct: 0 Num_total: 0
+----------- cvc -----------
+W AH0: Acc: 1.0 Num_correct: 6 Num_total: 6
+L EY0: Acc: 1.0 Num_correct: 8 Num_total: 8
+Y IY0: Acc: 1.0 Num_correct: 11 Num_total: 11
+----------- cvcvc -----------
+W AH0: Acc: 1.0 Num_correct: 10 Num_total: 10
+L EY0: Acc: 1.0 Num_correct: 8 Num_total: 8
+Y IY0: Acc: 1.0 Num_correct: 12 Num_total: 12
+----------- vcvc -----------
+W AH0: Acc: 1.0 Num_correct: 9 Num_total: 9
+L EY0: Acc: 1.0 Num_correct: 13 Num_total: 13
+Y IY0: Acc: 1.0 Num_correct: 9 Num_total: 9
+
+######## Predictions ########
+singular - gold suffix - predicted suffix
+----------- cvcc -----------
+W AH0
+L EY0
+Y IY0
+----------- cvc -----------
+W AH0
+L EY0
+Y IY0
+----------- cvcvc -----------
+W AH0
+L EY0
+Y IY0
+----------- vcvc -----------
+W AH0
+L EY0
+Y IY0

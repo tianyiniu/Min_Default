@@ -2,6 +2,9 @@ import numpy as np
 from re import sub
 from random import shuffle
 
+CONS = ["P", "B", "T", "D", "K", "G", "NG", "M", "N", "L", "F",  "V", "S", "Z", "SH", "ZH", "CH", "JH", "H"]
+VOWELS = ["IH0", "EH0", "AH0", "UH0", "IY0", "UW0", "EY0", "OW0", "IH1", "EH1", "AH1", "UH1", "IY1", "UW1", "EY1", "OW1", "IH2", "EH2", "AH2", "UH2", "IY2", "UW2", "EY2", "OW2"]
+
 # ------------ Preprocessing functions ------------ # 
 """Initialize feature and category dictionaries."""
 
@@ -112,3 +115,84 @@ def get_arrays(UR_strings, SR_strings, syll_lengths, symbol2feats, suffix2label,
 
 	Y = np.array(Y_list) # single int
 	return X, Y
+
+
+# ------------ Test Accuracy by Gold Label ------------ #
+def calc_results_by_gold_label(y_test, y_pred, suffix2label, label2suffix):
+	gold_classes = suffix2label.keys()
+	acc_dict = {gold_class:[] for gold_class in gold_classes}
+	
+	# Calculate accuracies for each gold label
+	for y_gold, y_guess in zip(y_test, y_pred):
+		gold_suffix = label2suffix[y_gold]
+		pred_suffix = label2suffix[y_guess]
+		is_correct = 1 if gold_suffix == pred_suffix else 0
+		acc_dict[gold_suffix].append(is_correct)
+
+	for gold_class in acc_dict:
+		accs_list = acc_dict[gold_class]
+		if len(accs_list):
+			accs = sum(accs_list)/len(accs_list)
+		else:
+			accs = -1
+		acc = round(accs, 3)
+		acc_dict[gold_class] = acc
+	return acc_dict
+
+
+# ------------ Test Accuracy by Word Type ------------ #
+def write_results_by_word_type(test_SGs, y_test, y_pred, write_filepath, suffix2label, label2suffix):
+	# Find unique word type (templates) in dataset
+	word_types = set()
+	for sg in test_SGs:
+		segments = sg.split(" ")
+		word_type = ["c" if seg in CONS else "v" for seg in segments]
+		word_types.add("".join(word_type))
+
+	# Initialize acc dict and error dict. Both indexed by word type then gold class
+	gold_classes = suffix2label.keys()
+	acc_dict = {word_type: {gold_class:[] for gold_class in gold_classes} for word_type in word_types}
+	error_dict = {word_type: {gold_class:[] for gold_class in gold_classes} for word_type in word_types}
+
+	for word, y_gold, y_guess in zip(test_SGs, y_test, y_pred):
+		gold_suffix = label2suffix[y_gold]
+		pred_suffix = label2suffix[y_guess]
+		word_type = "".join(["c" if seg in CONS else "v" for seg in word.split(" ")])
+		assert word_type in word_types
+		is_correct = 1 if gold_suffix == pred_suffix else 0
+		acc_dict[word_type][gold_suffix].append(is_correct)
+		if not is_correct:
+			error_dict[word_type][gold_suffix].append((word, y_gold, y_guess))
+
+	# Transforms list of 1s and 0s in acc dict into accuracy scalar
+	for word_type in acc_dict:
+		for gold_label in acc_dict[word_type]:
+			accs_list = acc_dict[word_type][gold_label]
+			if len(accs_list):
+				accs = sum(accs_list)/len(accs_list)
+			else:
+				accs = -1
+			acc = round(accs, 3)
+			acc_dict[word_type][gold_label] = f"Acc: {acc} Num_correct: {sum(accs_list)} Num_total: {len(accs_list)}" # type: ignore
+
+	# Format and write results to file
+	lines = []
+	lines.append("\n######## Accuracies ########\n")
+	for word_type in acc_dict:
+		lines.append(f"----------- {word_type} -----------\n")
+		for gold_label, acc in acc_dict[word_type].items():
+			lines.append(f"{gold_label}: {acc}\n")
+
+	lines.append("\n######## Predictions ########\n")
+	lines.append("singular - gold suffix - predicted suffix\n")
+	for word_type in error_dict:
+		lines.append(f"----------- {word_type} -----------\n")
+		for gold_label in error_dict[word_type]:
+			lines.append(f"{gold_label}\n")
+			for word, y_gold, y_guess in error_dict[word_type][gold_label]:
+				gold_suffix = label2suffix[y_gold]
+				pred_suffix = label2suffix[y_guess]
+				lines.append(f"   {word} - {gold_suffix} - {pred_suffix}\n")
+
+	with open(write_filepath, "w", encoding="utf-8") as f:
+		f.writelines(lines)
