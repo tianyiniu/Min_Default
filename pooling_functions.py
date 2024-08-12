@@ -13,7 +13,7 @@ def pool_last(X):
 		curr_idx = max_segments - 1
 		while curr_idx >= 0:
 			last = word[curr_idx]
-			if len(set(last)) > 1: # Not pad token
+			if len(set(last)) > 1 or 0 not in set(last): # Not pad token
 				break
 			curr_idx -= 1
 		new_X.append(last)

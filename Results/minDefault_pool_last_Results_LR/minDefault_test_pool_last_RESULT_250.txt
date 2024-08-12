@@ -1,0 +1,47 @@
+
+######## Accuracies ########
+----------- vcvc -----------
+W AH0: Acc: 1.0 Num_correct: 32 Num_total: 32
+L EY0: Acc: 1.0 Num_correct: 32 Num_total: 32
+Y IY0: Acc: 0.833 Num_correct: 20 Num_total: 24
+----------- cvcv -----------
+W AH0: Acc: -1 Num_correct: 0 Num_total: 0
+L EY0: Acc: -1 Num_correct: 0 Num_total: 0
+Y IY0: Acc: 1.0 Num_correct: 24 Num_total: 24
+----------- cvcvc -----------
+W AH0: Acc: 1.0 Num_correct: 32 Num_total: 32
+L EY0: Acc: 1.0 Num_correct: 32 Num_total: 32
+Y IY0: Acc: 0.833 Num_correct: 20 Num_total: 24
+----------- cvc -----------
+W AH0: Acc: 1.0 Num_correct: 32 Num_total: 32
+L EY0: Acc: 1.0 Num_correct: 32 Num_total: 32
+Y IY0: Acc: 0.917 Num_correct: 22 Num_total: 24
+
+######## Predictions ########
+singular - gold suffix - predicted suffix
+----------- vcvc -----------
+W AH0
+L EY0
+Y IY0
+   UH0 SH IH1 B - Y IY0 - L EY0
+   UW0 JH UW1 B - Y IY0 - L EY0
+   EH0 G UW1 B - Y IY0 - L EY0
+   EH0 N EH1 B - Y IY0 - L EY0
+----------- cvcv -----------
+W AH0
+L EY0
+Y IY0
+----------- cvcvc -----------
+W AH0
+L EY0
+Y IY0
+   K EH0 N AH1 B - Y IY0 - L EY0
+   G UW0 B OW1 B - Y IY0 - L EY0
+   CH EY0 Z EY1 B - Y IY0 - L EY0
+   D UW0 M EY1 B - Y IY0 - L EY0
+----------- cvc -----------
+W AH0
+L EY0
+Y IY0
+   S OW1 B - Y IY0 - L EY0
+   JH EY1 B - Y IY0 - L EY0

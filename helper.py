@@ -1,9 +1,14 @@
+import os
 import numpy as np
 from re import sub
 from random import shuffle
 
 CONS = ["P", "B", "T", "D", "K", "G", "NG", "M", "N", "L", "F",  "V", "S", "Z", "SH", "ZH", "CH", "JH", "H"]
 VOWELS = ["IH0", "EH0", "AH0", "UH0", "IY0", "UW0", "EY0", "OW0", "IH1", "EH1", "AH1", "UH1", "IY1", "UW1", "EY1", "OW1", "IH2", "EH2", "AH2", "UH2", "IY2", "UW2", "EY2", "OW2"]
+
+def check_dir_exists(directory_path):
+    if not os.path.exists(directory_path):
+        os.makedirs(directory_path)
 
 # ------------ Preprocessing functions ------------ # 
 """Initialize feature and category dictionaries."""

@@ -4,8 +4,6 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 
-from sklearn.linear_model import SGDClassifier
-
 from helper import * 
 from pooling_functions import *
 
@@ -15,32 +13,30 @@ import torch.optim as optim
 from torch.utils.data import DataLoader, TensorDataset
 from torch.nn.functional import one_hot
 
-from sklearn.model_selection import train_test_split
-from sklearn.metrics import classification_report, accuracy_score
 
 # ------------ Define FFN class and relevant functions ------------ # 
 
 class SimpleFFN(nn.Module):
-    def __init__(self, input_dim, output_dim, hidden_dim=50):
-        super(SimpleFFN, self).__init__()
-        self.fc1 = nn.Linear(input_dim, hidden_dim)
-        self.relu = nn.ReLU()
-        self.fc2 = nn.Linear(hidden_dim, output_dim)
-    
-    def forward(self, x):
-        out = self.fc1(x)
-        out = self.relu(out)
-        out = self.fc2(out)
-        return out
-    
+	def __init__(self, input_dim, output_dim, hidden_dim=50):
+		super(SimpleFFN, self).__init__()
+		self.fc1 = nn.Linear(input_dim, hidden_dim)
+		self.relu = nn.ReLU()
+		self.fc2 = nn.Linear(hidden_dim, output_dim)
+	
+	def forward(self, x):
+		out = self.fc1(x)
+		out = self.relu(out)
+		out = self.fc2(out)
+		return out
+	
 
 def inference(model, inputs):
-    model.eval()  # Set the model to evaluation mode
-    with torch.no_grad():  # No need to compute gradients for inference
-        outputs = model(inputs)
-        predictions = torch.sigmoid(outputs)  # Apply sigmoid to get probabilities
-        predictions_index = torch.argmax(predictions, dim=1)
-    return predictions_index
+	model.eval()  # Set the model to evaluation mode
+	with torch.no_grad():  # No need to compute gradients for inference
+		outputs = model(inputs)
+		predictions = torch.sigmoid(outputs)  # Apply sigmoid to get probabilities
+		predictions_index = torch.argmax(predictions, dim=1)
+	return predictions_index
 
 
 # ------------ Functions for making plots ------------ #
@@ -79,13 +75,16 @@ if __name__ == "__main__":
 	symbol2feats, suffix2label, label2suffix = init_resource_dicts(FEATURES_FILE)
 
 	# ------------ Model hyperparameters ------------ # 
+	MODEL_NAME = "FFN"
 
 	TRAINING_DATA_FOLDER = "EqualDefault"
 	FILE_PREFIX = "equalFreq"
+	WRITE_RESULT_FOLDER = f"./{TRAINING_DATA_FOLDER}_Results_{MODEL_NAME}"
+	check_dir_exists(WRITE_RESULT_FOLDER)
+
 	POOLING_FUNC = pool_last # TODO change pooling function
 	POOLING_FUNC_name = "pool_last"
-	MODEL_NAME = "FFN"
-
+	
 	train_data_filepath = f"./{TRAINING_DATA_FOLDER}/{FILE_PREFIX}_train.txt"
 
 	# Train classifier
@@ -100,7 +99,7 @@ if __name__ == "__main__":
 
 	# Prepare data loaders
 	dataset = TensorDataset(X_train, y_train)
-	train_loader = DataLoader(dataset, batch_size=16, shuffle=True)
+	train_loader = DataLoader(dataset, batch_size=10, shuffle=True)
 
 	# Initialize the model, loss function, and optimizer
 	input_dim = X_train.shape[-1] 
@@ -112,7 +111,7 @@ if __name__ == "__main__":
 	optimizer = optim.Adam(model.parameters(), lr=0.0001)
 
 	# Train the model
-	num_epochs = 20
+	num_epochs = 30
 	class_1_accs, class_2_accs, class_3_accs = [], [], []
 	for epoch in range(num_epochs):
 		for inputs, labels in train_loader:
@@ -143,17 +142,20 @@ if __name__ == "__main__":
 		class_2_accs.append(acc_dict["L EY0"])
 		class_3_accs.append(acc_dict["Y IY0"])
 
-
+	# Final accuracy for validation set
 	print(f'{acc_dict["W AH0"]} - {acc_dict["L EY0"]} - {acc_dict["Y IY0"]}')
+
+	# Plot and save learning curves
+	test_file_suffix = "test"
+	learning_curve_filepath = f"{WRITE_RESULT_FOLDER}/{FILE_PREFIX}_{test_file_suffix}_{POOLING_FUNC_name}_CURVE.jpg" 
 	epochs = [i for i in range(num_epochs)]
-	plot_learning_curve(class_1_accs, class_2_accs, class_3_accs, epochs, save_filepath="temp_ffn_learning_curve.jpg")
+	plot_learning_curve(class_1_accs, class_2_accs, class_3_accs, epochs, save_filepath=learning_curve_filepath)
 
 	test_file_suffixes = ["test", "test_H", "test_L", "test_Mutants", "testNewTemplates"]
-	# test_file_suffixes = ["test"]
 	for test_file_suffix in test_file_suffixes:
 		print(f"Testing {test_file_suffix}")
 		test_filepath = f"./{TRAINING_DATA_FOLDER}/{FILE_PREFIX}_{test_file_suffix}.txt"
-		write_filepath = f"./{TRAINING_DATA_FOLDER}_Results_{MODEL_NAME}/{FILE_PREFIX}_{test_file_suffix}_{POOLING_FUNC_name}_RESULT.txt" 
+		write_filepath = f"{WRITE_RESULT_FOLDER}/{FILE_PREFIX}_{test_file_suffix}_{POOLING_FUNC_name}_RESULT.txt" 
 
 		test_SGs, test_PLs, test_Ls = process_file(test_filepath)
 		X_test, y_test = get_arrays(test_SGs, test_PLs, test_Ls, symbol2feats, suffix2label, pool_func=POOLING_FUNC, override_max_syll=5)
