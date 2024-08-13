@@ -29,7 +29,7 @@ def get_heatmaps(model, used_pool_func_name, save_filepath):
 								index=class_names).round(2)
 
 		fig, ax = plt.subplots(figsize=(30, 8))
-		sns.heatmap(weights_df, annot=False, cmap='coolwarm', center=0, cbar=True, linewidths=1, linecolor='black', square=True, cbar_kws={"shrink":0.3})
+		sns.heatmap(weights_df, annot=False, cmap='coolwarm', center=0, cbar=False, linewidths=1, linecolor='black', square=True, cbar_kws={"shrink":0.3})
 	else: 
 		feature_names = FEATURE_NAMES
 		class_names = ["W AH0", "L EY0", "Y IY0"]
@@ -37,9 +37,9 @@ def get_heatmaps(model, used_pool_func_name, save_filepath):
 								index=class_names).round(2)
 
 		fig, ax = plt.subplots(figsize=(10, 8))
-		sns.heatmap(weights_df, annot=True, cmap='coolwarm', center=0, cbar=True, linewidths=1, linecolor='black', square=True)
+		sns.heatmap(weights_df, annot=True, cmap='coolwarm', center=0, cbar=False, linewidths=1, linecolor='black', square=True)
 
-	plt.title(f'{TRAINING_DATA_FOLDER}_LR_{POOLING_FUNC_name}')
+	plt.title(f'Weight Matrix: {TRAINING_DATA_FOLDER} ({POOLING_FUNC_name})')
 	plt.tight_layout()
 	plt.savefig(save_filepath, format="jpg", dpi=300)
 	print(f"Saved heatmap to path: {save_filepath}")
@@ -54,9 +54,9 @@ def plot_learning_curve(class_1_accs, class_2_accs, class_3_accs, iterations, sa
 	plt.plot(iterations, class_3_accs, label='Y IY0', color="blue")
 	
 	# Adding titles and labels
-	plt.title(f'Learning Curve - {MODEL_NAME} - {TRAINING_DATA_FOLDER} - test - {POOLING_FUNC_name}')
-	plt.xlabel('Num batches (MAX_ITERATIONS / BATCH_SIZE)')
-	plt.ylabel('Accuracy')
+	plt.title(f'{MODEL_NAME} - {TRAINING_DATA_FOLDER} - test ({POOLING_FUNC_name})')
+	plt.xlabel('Number of Batches')
+	plt.ylabel('Average Proportion Correct')
 	
 	plt.legend()
 	plt.grid(False)
@@ -81,8 +81,8 @@ if __name__ == "__main__":
 	# ------------ Model hyperparameters ------------ # 
 	MODEL_NAME = "LR"
 
-	TRAINING_DATA_FOLDER = "MinDefault"
-	FILE_PREFIX = "minDefault"
+	TRAINING_DATA_FOLDER = "MajDefault"
+	FILE_PREFIX = "majDefault"
 
 	POOLING_FUNC = pool_last # TODO change pooling function
 	POOLING_FUNC_name = "pool_last"
@@ -97,6 +97,7 @@ if __name__ == "__main__":
 	BATCH_SIZE = 10
 	NUM_EPOCHS = 3
 	NUM_REPEATS = 10 # Repeat LR model training 20 times for more reliable accuracy curve
+	LEARNING_RATE = 0.01
 
 	VALIDATION_FILE_PREFIX = "test"
 
@@ -115,7 +116,7 @@ if __name__ == "__main__":
 
 		run_class_1_accs, run_class_2_accs, run_class_3_accs = [], [], []
 
-		model = SGDClassifier(loss="log_loss", max_iter=1, tol=None, warm_start=True, eta0=0.01, learning_rate="constant") # TODO adjust parameters of model
+		model = SGDClassifier(loss="log_loss", max_iter=1, tol=None, warm_start=True, eta0=LEARNING_RATE, learning_rate="constant") # TODO adjust parameters of model
 
 		curr_batch_num = 0
 		for j in range(0, X_train.shape[0], BATCH_SIZE):
