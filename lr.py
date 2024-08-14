@@ -70,34 +70,34 @@ if __name__ == "__main__":
 	CONS = ["P", "B", "T", "D", "K", "G", "NG", "M", "N", "L", "F",  "V", "S", "Z", "SH", "ZH", "CH", "JH", "H"]
 	VOWELS = ["IH0", "EH0", "AH0", "UH0", "IY0", "UW0", "EY0", "OW0", "IH1", "EH1", "AH1", "UH1", "IY1", "UW1", "EY1", "OW1", "IH2", "EH2", "AH2", "UH2", "IY2", "UW2", "EY2", "OW2"]
 
-	FEATURES_FILE = "Feature_files/featsNew"
-	FEATURE_NAMES = ["cons", "syll", "son", "approx", "voice", "cont", "nas", "strid", "lab", "cor", "ant", "dist", "dor", "high", "back", "tense", "diph", "stress", "main"]
+	# FEATURES_FILE = "Feature_files/featsNew"
+	# FEATURE_NAMES = ["cons", "syll", "son", "approx", "voice", "cont", "nas", "strid", "lab", "cor", "ant", "dist", "dor", "high", "back", "tense", "diph", "stress", "main"]
 
-	# FEATURES_FILE = "Feature_files/featsNew_mini"
-	# FEATURE_NAMES = ["son", "voice", "strid"]
+	FEATURES_FILE = "Feature_files/featsNew_mini"
+	FEATURE_NAMES = ["son", "voice", "strid"]
 
 	symbol2feats, suffix2label, label2suffix = init_resource_dicts(FEATURES_FILE)
 
 	# ------------ Model hyperparameters ------------ # 
 	MODEL_NAME = "LR"
 
-	TRAINING_DATA_FOLDER = "EqualDefault"
-	FILE_PREFIX = "equalFreq"
+	TRAINING_DATA_FOLDER = "MajDefault"
+	FILE_PREFIX = "majDefault"
 
-	# POOLING_FUNC = pool_last # TODO change pooling function
-	# POOLING_FUNC_name = "pool_last"
+	POOLING_FUNC = pool_last # TODO change pooling function
+	POOLING_FUNC_name = "pool_last"
 
-	POOLING_FUNC = pool_concat # TODO change pooling function
-	POOLING_FUNC_name = "pool_concat"
+	# POOLING_FUNC = pool_concat # TODO change pooling function
+	# POOLING_FUNC_name = "pool_concat"
 	
-	WRITE_RESULT_FOLDER = f"./{TRAINING_DATA_FOLDER}_{POOLING_FUNC_name}_Results_{MODEL_NAME}"
+	WRITE_RESULT_FOLDER = f"./{TRAINING_DATA_FOLDER}_{POOLING_FUNC_name}_Results_{MODEL_NAME}_feats_mini"
 	# WRITE_RESULT_FOLDER = f"./{TRAINING_DATA_FOLDER}_{POOLING_FUNC_name}_Results_{MODEL_NAME}_featsmini"
 	check_dir_exists(WRITE_RESULT_FOLDER)
 
 	BATCH_SIZE = 10
 	NUM_EPOCHS = 3
 	NUM_REPEATS = 10 # Repeat LR model training 10 times for more reliable accuracy curve
-	LEARNING_RATE = 0.05 # 0.01 for pool last, 0.05 for pool concat
+	LEARNING_RATE = 0.01 # 0.01 for pool last, 0.05 for pool concat
 
 	VALIDATION_FILE_PREFIX = "test"
 
