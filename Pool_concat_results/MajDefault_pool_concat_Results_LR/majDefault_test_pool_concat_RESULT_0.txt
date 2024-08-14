@@ -1,221 +1,215 @@
 
 ######## Accuracies ########
 ----------- cvcvc -----------
-W AH0: Acc: 0.0 Num_correct: 0 Num_total: 32
+W AH0: Acc: 0.031 Num_correct: 1 Num_total: 32
 L EY0: Acc: 0.0 Num_correct: 0 Num_total: 32
 Y IY0: Acc: 1.0 Num_correct: 24 Num_total: 24
+----------- cvc -----------
+W AH0: Acc: 0.25 Num_correct: 8 Num_total: 32
+L EY0: Acc: 0.031 Num_correct: 1 Num_total: 32
+Y IY0: Acc: 0.917 Num_correct: 22 Num_total: 24
 ----------- cvcv -----------
 W AH0: Acc: -1 Num_correct: 0 Num_total: 0
 L EY0: Acc: -1 Num_correct: 0 Num_total: 0
 Y IY0: Acc: 1.0 Num_correct: 24 Num_total: 24
 ----------- vcvc -----------
-W AH0: Acc: 0.0 Num_correct: 0 Num_total: 32
-L EY0: Acc: 1.0 Num_correct: 32 Num_total: 32
-Y IY0: Acc: 0.0 Num_correct: 0 Num_total: 24
------------ cvc -----------
-W AH0: Acc: 0.0 Num_correct: 0 Num_total: 32
+W AH0: Acc: 0.281 Num_correct: 9 Num_total: 32
 L EY0: Acc: 0.0 Num_correct: 0 Num_total: 32
-Y IY0: Acc: 1.0 Num_correct: 24 Num_total: 24
+Y IY0: Acc: 0.875 Num_correct: 21 Num_total: 24
 
 ######## Predictions ########
 singular - gold suffix - predicted suffix
 ----------- cvcvc -----------
 W AH0
-   G IY0 JH AH1 S - W AH0 - Y IY0
-   N OW0 D IY1 ZH - W AH0 - Y IY0
-   N UH0 K IH1 Z - W AH0 - Y IY0
-   V EY0 M EY1 S - W AH0 - Y IY0
+   F IH0 SH EH1 JH - W AH0 - Y IY0
+   D IY0 Z UW1 ZH - W AH0 - Y IY0
+   T EY0 K UH1 SH - W AH0 - Y IY0
+   N EY0 G UW1 Z - W AH0 - Y IY0
+   V EY0 K UH1 CH - W AH0 - Y IY0
    JH EH0 L EY1 ZH - W AH0 - Y IY0
-   M EY0 M EH1 SH - W AH0 - Y IY0
-   K UH0 SH UW1 CH - W AH0 - Y IY0
-   SH IY0 G OW1 CH - W AH0 - Y IY0
-   K UH0 L EH1 S - W AH0 - Y IY0
+   G IY0 JH AH1 S - W AH0 - Y IY0
    G EY0 B IY1 CH - W AH0 - Y IY0
    T EH0 S UH1 CH - W AH0 - Y IY0
-   K AH0 N EY1 CH - W AH0 - Y IY0
-   V EY0 K UH1 CH - W AH0 - Y IY0
-   G UW0 S UW1 JH - W AH0 - Y IY0
-   N AH0 SH IY1 Z - W AH0 - Y IY0
-   F IH0 SH EH1 JH - W AH0 - Y IY0
    F EY0 K EY1 ZH - W AH0 - Y IY0
-   V IY0 F IY1 ZH - W AH0 - Y IY0
-   T EY0 K UH1 SH - W AH0 - Y IY0
-   CH UW0 N EH1 Z - W AH0 - Y IY0
-   N EH0 CH UW1 CH - W AH0 - Y IY0
+   K UH0 L EH1 S - W AH0 - Y IY0
+   G UW0 S UW1 JH - W AH0 - Y IY0
    L EY0 M IH1 S - W AH0 - Y IY0
-   K UH0 SH UW1 JH - W AH0 - Y IY0
-   N EY0 G UW1 Z - W AH0 - Y IY0
-   N UW0 M EH1 ZH - W AH0 - Y IY0
    F UH0 S EY1 JH - W AH0 - Y IY0
-   G IH0 CH IY1 Z - W AH0 - Y IY0
-   D EY0 P EY1 CH - W AH0 - Y IY0
+   N UH0 K IH1 Z - W AH0 - Y IY0
    Z IH0 T IH1 Z - W AH0 - Y IY0
-   Z EY0 K IH1 Z - W AH0 - Y IY0
    T IH0 SH IY1 SH - W AH0 - Y IY0
-   D IY0 Z UW1 ZH - W AH0 - Y IY0
+   N OW0 D IY1 ZH - W AH0 - Y IY0
+   SH IY0 G OW1 CH - W AH0 - Y IY0
+   N AH0 SH IY1 Z - W AH0 - Y IY0
+   CH UW0 N EH1 Z - W AH0 - Y IY0
+   N UW0 M EH1 ZH - W AH0 - Y IY0
+   V EY0 M EY1 S - W AH0 - Y IY0
+   K UH0 SH UW1 CH - W AH0 - Y IY0
+   V IY0 F IY1 ZH - W AH0 - Y IY0
+   M EY0 M EH1 SH - W AH0 - Y IY0
+   G IH0 CH IY1 Z - W AH0 - Y IY0
+   K UH0 SH UW1 JH - W AH0 - Y IY0
+   Z EY0 K IH1 Z - W AH0 - Y IY0
+   K AH0 N EY1 CH - W AH0 - Y IY0
+   D EY0 P EY1 CH - W AH0 - Y IY0
 L EY0
-   K OW0 L EY1 F - L EY0 - Y IY0
+   F AH0 SH OW1 F - L EY0 - W AH0
    T UW0 B IY1 P - L EY0 - Y IY0
-   V OW0 JH IH1 P - L EY0 - Y IY0
-   T AH0 V AH1 F - L EY0 - Y IY0
-   K UW0 K UH1 T - L EY0 - Y IY0
-   S UW0 P IY1 T - L EY0 - Y IY0
-   SH UW0 L OW1 P - L EY0 - Y IY0
-   V UW0 P OW1 F - L EY0 - Y IY0
-   M UW0 V UH1 T - L EY0 - Y IY0
    JH EH0 K EH1 P - L EY0 - Y IY0
-   B UW0 N EY1 T - L EY0 - Y IY0
-   SH IY0 SH EH1 P - L EY0 - Y IY0
-   T IH0 P AH1 F - L EY0 - Y IY0
-   N UW0 V EY1 F - L EY0 - Y IY0
-   CH EY0 P IH1 P - L EY0 - Y IY0
-   K UH0 SH EY1 T - L EY0 - Y IY0
-   V OW0 K UH1 K - L EY0 - Y IY0
-   CH IY0 M EH1 P - L EY0 - Y IY0
-   V AH0 T EY1 K - L EY0 - Y IY0
-   N IH0 F EH1 P - L EY0 - Y IY0
-   CH UW0 K UH1 T - L EY0 - Y IY0
-   M EY0 K AH1 T - L EY0 - Y IY0
+   K UW0 K UH1 T - L EY0 - Y IY0
    K EY0 SH IH1 P - L EY0 - Y IY0
-   F AH0 SH OW1 F - L EY0 - Y IY0
    K UH0 K UH1 K - L EY0 - Y IY0
+   K UH0 SH EY1 T - L EY0 - Y IY0
+   CH EY0 P IH1 P - L EY0 - Y IY0
    K IH0 P IY1 F - L EY0 - Y IY0
-   K EH0 JH EY1 F - L EY0 - Y IY0
-   SH IH0 G EH1 F - L EY0 - Y IY0
+   S UW0 P IY1 T - L EY0 - Y IY0
+   V OW0 K UH1 K - L EY0 - Y IY0
+   B UW0 N EY1 T - L EY0 - Y IY0
    CH UW0 D EH1 P - L EY0 - Y IY0
-   D IY0 B EY1 F - L EY0 - Y IY0
-   T EH0 SH IH1 F - L EY0 - Y IY0
    Z EY0 P EH1 T - L EY0 - Y IY0
+   D IY0 B EY1 F - L EY0 - Y IY0
+   SH IY0 SH EH1 P - L EY0 - Y IY0
+   V OW0 JH IH1 P - L EY0 - Y IY0
+   V AH0 T EY1 K - L EY0 - Y IY0
+   M EY0 K AH1 T - L EY0 - Y IY0
+   N UW0 V EY1 F - L EY0 - Y IY0
+   V UW0 P OW1 F - L EY0 - Y IY0
+   T AH0 V AH1 F - L EY0 - Y IY0
+   K EH0 JH EY1 F - L EY0 - Y IY0
+   CH UW0 K UH1 T - L EY0 - Y IY0
+   SH IH0 G EH1 F - L EY0 - Y IY0
+   N IH0 F EH1 P - L EY0 - Y IY0
+   T EH0 SH IH1 F - L EY0 - Y IY0
+   K OW0 L EY1 F - L EY0 - Y IY0
+   M UW0 V UH1 T - L EY0 - Y IY0
+   T IH0 P AH1 F - L EY0 - Y IY0
+   SH UW0 L OW1 P - L EY0 - Y IY0
+   CH IY0 M EH1 P - L EY0 - Y IY0
 Y IY0
+----------- cvc -----------
+W AH0
+   P IY1 SH - W AH0 - Y IY0
+   T IH1 CH - W AH0 - Y IY0
+   P IH1 SH - W AH0 - Y IY0
+   JH EH1 Z - W AH0 - Y IY0
+   M IH1 SH - W AH0 - Y IY0
+   N UH1 CH - W AH0 - Y IY0
+   SH IY1 JH - W AH0 - Y IY0
+   SH UW1 JH - W AH0 - Y IY0
+   JH EY1 Z - W AH0 - Y IY0
+   V UH1 CH - W AH0 - Y IY0
+   K EH1 Z - W AH0 - Y IY0
+   CH IH1 ZH - W AH0 - Y IY0
+   K UW1 ZH - W AH0 - Y IY0
+   T EY1 S - W AH0 - Y IY0
+   D EH1 JH - W AH0 - Y IY0
+   G IH1 JH - W AH0 - Y IY0
+   CH AH1 CH - W AH0 - Y IY0
+   JH IH1 CH - W AH0 - Y IY0
+   P AH1 Z - W AH0 - Y IY0
+   CH EH1 ZH - W AH0 - Y IY0
+   T AH1 JH - W AH0 - Y IY0
+   N IH1 Z - W AH0 - Y IY0
+   V IH1 S - W AH0 - Y IY0
+   Z IH1 S - W AH0 - Y IY0
+L EY0
+   N OW1 K - L EY0 - Y IY0
+   G EY1 K - L EY0 - Y IY0
+   B OW1 F - L EY0 - Y IY0
+   L EY1 F - L EY0 - Y IY0
+   G IH1 T - L EY0 - Y IY0
+   V AH1 P - L EY0 - Y IY0
+   G UW1 P - L EY0 - Y IY0
+   B UW1 K - L EY0 - Y IY0
+   T EH1 P - L EY0 - Y IY0
+   N IY1 T - L EY0 - Y IY0
+   G OW1 K - L EY0 - Y IY0
+   K UW1 F - L EY0 - Y IY0
+   N UW1 K - L EY0 - Y IY0
+   N IY1 K - L EY0 - Y IY0
+   Z IH1 K - L EY0 - Y IY0
+   S IY1 P - L EY0 - Y IY0
+   JH AH1 T - L EY0 - Y IY0
+   N OW1 F - L EY0 - Y IY0
+   V UW1 P - L EY0 - Y IY0
+   P UW1 T - L EY0 - Y IY0
+   N IH1 F - L EY0 - Y IY0
+   K EH1 P - L EY0 - Y IY0
+   P OW1 F - L EY0 - Y IY0
+   T AH1 P - L EY0 - Y IY0
+   Z EY1 T - L EY0 - Y IY0
+   F UW1 P - L EY0 - Y IY0
+   V UW1 T - L EY0 - Y IY0
+   D IY1 F - L EY0 - Y IY0
+   T UW1 F - L EY0 - Y IY0
+   M EH1 K - L EY0 - Y IY0
+   Z UW1 T - L EY0 - Y IY0
+Y IY0
+   N OW1 N - Y IY0 - L EY0
+   N EH1 NG - Y IY0 - L EY0
 ----------- cvcv -----------
 W AH0
 L EY0
 Y IY0
 ----------- vcvc -----------
 W AH0
-   IY0 G IY1 SH - W AH0 - L EY0
-   IY0 V IH1 S - W AH0 - L EY0
-   EY0 D EY1 S - W AH0 - L EY0
-   IY0 F IY1 Z - W AH0 - L EY0
-   IY0 V EY1 CH - W AH0 - L EY0
-   OW0 D OW1 JH - W AH0 - L EY0
-   IH0 CH IY1 SH - W AH0 - L EY0
-   UW0 Z OW1 CH - W AH0 - L EY0
-   UW0 G UH1 SH - W AH0 - L EY0
-   IH0 F OW1 Z - W AH0 - L EY0
-   EY0 T OW1 CH - W AH0 - L EY0
-   EY0 T IY1 S - W AH0 - L EY0
-   UH0 D UW1 ZH - W AH0 - L EY0
-   OW0 P UH1 SH - W AH0 - L EY0
-   UH0 K AH1 Z - W AH0 - L EY0
-   UH0 SH UW1 CH - W AH0 - L EY0
-   EY0 V IY1 SH - W AH0 - L EY0
-   EH0 K UH1 SH - W AH0 - L EY0
-   EY0 M UW1 ZH - W AH0 - L EY0
-   IH0 D EY1 ZH - W AH0 - L EY0
-   OW0 T IY1 S - W AH0 - L EY0
-   IH0 V IY1 Z - W AH0 - L EY0
-   IH0 JH UW1 Z - W AH0 - L EY0
-   AH0 M IY1 SH - W AH0 - L EY0
-   UW0 L EY1 CH - W AH0 - L EY0
-   UH0 Z IH1 S - W AH0 - L EY0
-   UH0 Z OW1 CH - W AH0 - L EY0
-   IH0 JH UW1 JH - W AH0 - L EY0
-   OW0 L EH1 Z - W AH0 - L EY0
-   IH0 D IY1 Z - W AH0 - L EY0
-   EY0 Z IY1 S - W AH0 - L EY0
-   UW0 K AH1 SH - W AH0 - L EY0
+   IH0 JH UW1 Z - W AH0 - Y IY0
+   UW0 Z OW1 CH - W AH0 - Y IY0
+   IH0 V IY1 Z - W AH0 - Y IY0
+   IH0 D EY1 ZH - W AH0 - Y IY0
+   IY0 F IY1 Z - W AH0 - Y IY0
+   UH0 D UW1 ZH - W AH0 - Y IY0
+   UH0 K AH1 Z - W AH0 - Y IY0
+   IY0 V EY1 CH - W AH0 - Y IY0
+   OW0 P UH1 SH - W AH0 - Y IY0
+   IH0 F OW1 Z - W AH0 - Y IY0
+   UW0 G UH1 SH - W AH0 - Y IY0
+   EH0 K UH1 SH - W AH0 - Y IY0
+   IY0 G IY1 SH - W AH0 - Y IY0
+   UH0 Z IH1 S - W AH0 - Y IY0
+   UH0 Z OW1 CH - W AH0 - Y IY0
+   IY0 V IH1 S - W AH0 - Y IY0
+   IH0 JH UW1 JH - W AH0 - Y IY0
+   AH0 M IY1 SH - W AH0 - Y IY0
+   UW0 K AH1 SH - W AH0 - Y IY0
+   UW0 L EY1 CH - W AH0 - Y IY0
+   IH0 CH IY1 SH - W AH0 - Y IY0
+   IH0 D IY1 Z - W AH0 - Y IY0
+   UH0 SH UW1 CH - W AH0 - Y IY0
 L EY0
+   EY0 S UW1 T - L EY0 - Y IY0
+   EY0 S EH1 T - L EY0 - W AH0
+   EY0 V IY1 K - L EY0 - W AH0
+   AH0 D IY1 P - L EY0 - Y IY0
+   AH0 S UH1 K - L EY0 - Y IY0
+   IH0 F AH1 P - L EY0 - Y IY0
+   OW0 S OW1 F - L EY0 - W AH0
+   EY0 L UH1 T - L EY0 - Y IY0
+   UH0 L IH1 P - L EY0 - Y IY0
+   EY0 SH OW1 F - L EY0 - W AH0
+   UW0 T AH1 T - L EY0 - Y IY0
+   EY0 N EY1 F - L EY0 - W AH0
+   IY0 SH EY1 K - L EY0 - Y IY0
+   IY0 SH IY1 T - L EY0 - Y IY0
+   OW0 K EH1 K - L EY0 - Y IY0
+   IH0 M EY1 K - L EY0 - Y IY0
+   AH0 CH IY1 K - L EY0 - Y IY0
+   EH0 T EY1 P - L EY0 - W AH0
+   EY0 G UH1 T - L EY0 - Y IY0
+   IY0 SH EY1 P - L EY0 - Y IY0
+   IY0 P OW1 T - L EY0 - Y IY0
+   IH0 G UW1 F - L EY0 - Y IY0
+   OW0 D IH1 K - L EY0 - W AH0
+   AH0 CH IY1 T - L EY0 - Y IY0
+   EH0 SH UW1 F - L EY0 - Y IY0
+   EY0 Z OW1 K - L EY0 - W AH0
+   IY0 K EH1 P - L EY0 - Y IY0
+   EH0 SH IY1 K - L EY0 - Y IY0
+   IY0 K EY1 F - L EY0 - Y IY0
+   UW0 K UH1 T - L EY0 - Y IY0
+   EH0 S EH1 F - L EY0 - W AH0
+   OW0 P UW1 K - L EY0 - Y IY0
 Y IY0
-   UW0 Z IH1 M - Y IY0 - L EY0
-   IY0 V IH1 M - Y IY0 - L EY0
-   AH0 V EH1 N - Y IY0 - L EY0
-   OW0 F EY1 V - Y IY0 - L EY0
-   IY0 L EY1 V - Y IY0 - L EY0
-   OW0 T UW1 B - Y IY0 - L EY0
-   UH0 L EY1 G - Y IY0 - L EY0
-   IY0 V UH1 D - Y IY0 - L EY0
-   EH0 SH OW1 M - Y IY0 - L EY0
-   UW0 T EY1 B - Y IY0 - L EY0
-   OW0 K EH1 M - Y IY0 - L EY0
-   EY0 G OW1 D - Y IY0 - L EY0
-   IY0 G EH1 G - Y IY0 - L EY0
-   EH0 G AH1 D - Y IY0 - L EY0
-   EH0 V IY1 M - Y IY0 - L EY0
-   OW0 SH AH1 B - Y IY0 - L EY0
-   EH0 G UH1 D - Y IY0 - L EY0
-   OW0 P OW1 G - Y IY0 - L EY0
-   IH0 F UW1 M - Y IY0 - L EY0
-   IY0 F IH1 NG - Y IY0 - L EY0
-   IY0 S OW1 G - Y IY0 - L EY0
-   IY0 SH OW1 B - Y IY0 - L EY0
-   IH0 T IH1 D - Y IY0 - L EY0
-   UW0 B EY1 M - Y IY0 - L EY0
------------ cvc -----------
-W AH0
-   S OW1 S - W AH0 - Y IY0
-   P IY1 SH - W AH0 - Y IY0
-   T EY1 S - W AH0 - Y IY0
-   CH EH1 ZH - W AH0 - Y IY0
-   T AH1 JH - W AH0 - Y IY0
-   V UH1 CH - W AH0 - Y IY0
-   Z IH1 S - W AH0 - Y IY0
-   V IH1 S - W AH0 - Y IY0
-   SH UW1 JH - W AH0 - Y IY0
-   P IH1 SH - W AH0 - Y IY0
-   Z AH1 S - W AH0 - Y IY0
-   V EY1 Z - W AH0 - Y IY0
-   D EH1 JH - W AH0 - Y IY0
-   N OW1 JH - W AH0 - Y IY0
-   K EH1 Z - W AH0 - Y IY0
-   S EY1 Z - W AH0 - Y IY0
-   Z EH1 CH - W AH0 - Y IY0
-   JH EH1 Z - W AH0 - Y IY0
-   G IH1 JH - W AH0 - Y IY0
-   N IH1 Z - W AH0 - Y IY0
-   N UH1 CH - W AH0 - Y IY0
-   M IH1 SH - W AH0 - Y IY0
-   JH IH1 CH - W AH0 - Y IY0
-   JH EY1 Z - W AH0 - Y IY0
-   T IH1 CH - W AH0 - Y IY0
-   K UW1 ZH - W AH0 - Y IY0
-   P AH1 Z - W AH0 - Y IY0
-   CH AH1 CH - W AH0 - Y IY0
-   N EY1 Z - W AH0 - Y IY0
-   SH OW1 Z - W AH0 - Y IY0
-   SH IY1 JH - W AH0 - Y IY0
-   CH IH1 ZH - W AH0 - Y IY0
-L EY0
-   Z UW1 T - L EY0 - Y IY0
-   G UW1 P - L EY0 - Y IY0
-   N IH1 F - L EY0 - Y IY0
-   V UW1 T - L EY0 - Y IY0
-   D IY1 F - L EY0 - Y IY0
-   P OW1 F - L EY0 - Y IY0
-   N IY1 K - L EY0 - Y IY0
-   N OW1 K - L EY0 - Y IY0
-   N OW1 F - L EY0 - Y IY0
-   V UW1 P - L EY0 - Y IY0
-   T AH1 P - L EY0 - Y IY0
-   F UW1 P - L EY0 - Y IY0
-   B UW1 K - L EY0 - Y IY0
-   S IY1 P - L EY0 - Y IY0
-   G IH1 T - L EY0 - Y IY0
-   P UW1 T - L EY0 - Y IY0
-   Z IH1 K - L EY0 - Y IY0
-   N UW1 K - L EY0 - Y IY0
-   G OW1 K - L EY0 - Y IY0
-   N IY1 T - L EY0 - Y IY0
-   Z EY1 T - L EY0 - Y IY0
-   K EH1 P - L EY0 - Y IY0
-   T EH1 P - L EY0 - Y IY0
-   L EY1 F - L EY0 - Y IY0
-   B OW1 F - L EY0 - Y IY0
-   JH AH1 T - L EY0 - Y IY0
-   K UW1 F - L EY0 - Y IY0
-   T UW1 F - L EY0 - Y IY0
-   M EH1 K - L EY0 - Y IY0
-   G EY1 K - L EY0 - Y IY0
-   V AH1 P - L EY0 - Y IY0
-   Z OW1 F - L EY0 - Y IY0
-Y IY0
+   IY0 L EY1 V - Y IY0 - W AH0
+   OW0 F EY1 V - Y IY0 - W AH0
+   OW0 SH AH1 B - Y IY0 - W AH0

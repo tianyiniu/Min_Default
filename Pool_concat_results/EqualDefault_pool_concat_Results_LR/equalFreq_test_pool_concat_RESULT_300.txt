@@ -13,9 +13,9 @@ W AH0: Acc: 1.0 Num_correct: 32 Num_total: 32
 L EY0: Acc: 1.0 Num_correct: 32 Num_total: 32
 Y IY0: Acc: 1.0 Num_correct: 24 Num_total: 24
 ----------- cvcvc -----------
-W AH0: Acc: 0.938 Num_correct: 30 Num_total: 32
+W AH0: Acc: 1.0 Num_correct: 32 Num_total: 32
 L EY0: Acc: 1.0 Num_correct: 32 Num_total: 32
-Y IY0: Acc: 0.958 Num_correct: 23 Num_total: 24
+Y IY0: Acc: 1.0 Num_correct: 24 Num_total: 24
 
 ######## Predictions ########
 singular - gold suffix - predicted suffix
@@ -33,8 +33,5 @@ L EY0
 Y IY0
 ----------- cvcvc -----------
 W AH0
-   P EY0 T EH1 S - W AH0 - L EY0
-   P EY0 T IY1 S - W AH0 - L EY0
 L EY0
 Y IY0
-   K UH0 K IH1 V - Y IY0 - L EY0

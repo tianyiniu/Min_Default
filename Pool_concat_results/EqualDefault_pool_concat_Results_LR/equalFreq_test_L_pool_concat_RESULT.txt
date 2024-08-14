@@ -3,7 +3,7 @@
 ----------- cvc -----------
 W AH0: Acc: -1 Num_correct: 0 Num_total: 0
 L EY0: Acc: -1 Num_correct: 0 Num_total: 0
-Y IY0: Acc: 0.812 Num_correct: 26 Num_total: 32
+Y IY0: Acc: 1.0 Num_correct: 32 Num_total: 32
 ----------- vcvc -----------
 W AH0: Acc: -1 Num_correct: 0 Num_total: 0
 L EY0: Acc: -1 Num_correct: 0 Num_total: 0
@@ -11,7 +11,7 @@ Y IY0: Acc: 1.0 Num_correct: 32 Num_total: 32
 ----------- cvcvc -----------
 W AH0: Acc: -1 Num_correct: 0 Num_total: 0
 L EY0: Acc: -1 Num_correct: 0 Num_total: 0
-Y IY0: Acc: 0.938 Num_correct: 30 Num_total: 32
+Y IY0: Acc: 0.969 Num_correct: 31 Num_total: 32
 
 ######## Predictions ########
 singular - gold suffix - predicted suffix
@@ -19,12 +19,6 @@ singular - gold suffix - predicted suffix
 W AH0
 L EY0
 Y IY0
-   V EH1 L - Y IY0 - W AH0
-   SH OW1 L - Y IY0 - W AH0
-   G UH1 L - Y IY0 - W AH0
-   JH OW1 L - Y IY0 - W AH0
-   V UH1 L - Y IY0 - W AH0
-   B UW1 L - Y IY0 - W AH0
 ----------- vcvc -----------
 W AH0
 L EY0
@@ -34,4 +28,3 @@ W AH0
 L EY0
 Y IY0
    F UW0 SH IH1 L - Y IY0 - W AH0
-   L AH0 SH UW1 L - Y IY0 - W AH0

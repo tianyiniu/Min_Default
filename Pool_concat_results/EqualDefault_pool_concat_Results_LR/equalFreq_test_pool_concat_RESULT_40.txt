@@ -1,66 +1,51 @@
 
 ######## Accuracies ########
 ----------- cvc -----------
-W AH0: Acc: 0.969 Num_correct: 31 Num_total: 32
-L EY0: Acc: 1.0 Num_correct: 32 Num_total: 32
-Y IY0: Acc: 0.375 Num_correct: 9 Num_total: 24
------------ vcvc -----------
 W AH0: Acc: 1.0 Num_correct: 32 Num_total: 32
-L EY0: Acc: 0.969 Num_correct: 31 Num_total: 32
-Y IY0: Acc: 0.875 Num_correct: 21 Num_total: 24
+L EY0: Acc: 1.0 Num_correct: 32 Num_total: 32
+Y IY0: Acc: 0.917 Num_correct: 22 Num_total: 24
 ----------- cvcv -----------
 W AH0: Acc: -1 Num_correct: 0 Num_total: 0
 L EY0: Acc: -1 Num_correct: 0 Num_total: 0
+Y IY0: Acc: 0.875 Num_correct: 21 Num_total: 24
+----------- vcvc -----------
+W AH0: Acc: 1.0 Num_correct: 32 Num_total: 32
+L EY0: Acc: 1.0 Num_correct: 32 Num_total: 32
 Y IY0: Acc: 0.958 Num_correct: 23 Num_total: 24
 ----------- cvcvc -----------
-W AH0: Acc: 0.875 Num_correct: 28 Num_total: 32
-L EY0: Acc: 0.938 Num_correct: 30 Num_total: 32
-Y IY0: Acc: 0.917 Num_correct: 22 Num_total: 24
+W AH0: Acc: 0.906 Num_correct: 29 Num_total: 32
+L EY0: Acc: 0.969 Num_correct: 31 Num_total: 32
+Y IY0: Acc: 0.833 Num_correct: 20 Num_total: 24
 
 ######## Predictions ########
 singular - gold suffix - predicted suffix
 ----------- cvc -----------
 W AH0
-   SH IH1 S - W AH0 - L EY0
 L EY0
 Y IY0
-   V UW1 D - Y IY0 - L EY0
-   Z IY1 V - Y IY0 - L EY0
-   SH UW1 D - Y IY0 - L EY0
-   CH UW1 B - Y IY0 - L EY0
-   K EY1 D - Y IY0 - W AH0
-   G UW1 V - Y IY0 - L EY0
-   F OW1 B - Y IY0 - L EY0
-   CH OW1 V - Y IY0 - L EY0
-   T AH1 V - Y IY0 - L EY0
-   JH OW1 B - Y IY0 - L EY0
-   Z IH1 B - Y IY0 - L EY0
-   D OW1 N - Y IY0 - W AH0
-   CH UW1 D - Y IY0 - L EY0
-   CH OW1 M - Y IY0 - L EY0
-   F AH1 V - Y IY0 - L EY0
------------ vcvc -----------
-W AH0
-L EY0
-   AH0 F EH1 F - L EY0 - W AH0
-Y IY0
-   AH0 JH EY1 N - Y IY0 - W AH0
-   EH0 K OW1 D - Y IY0 - L EY0
-   EH0 V EY1 N - Y IY0 - W AH0
+   K EY1 D - Y IY0 - L EY0
+   JH EY1 G - Y IY0 - L EY0
 ----------- cvcv -----------
 W AH0
 L EY0
 Y IY0
-   V AH0 S IH1 - Y IY0 - L EY0
+   K EH0 CH EY1 - Y IY0 - W AH0
+   V IH0 CH EY1 - Y IY0 - W AH0
+   F IY0 SH EY1 - Y IY0 - W AH0
+----------- vcvc -----------
+W AH0
+L EY0
+Y IY0
+   EH0 S EH1 B - Y IY0 - L EY0
 ----------- cvcvc -----------
 W AH0
-   CH UW0 F IH1 Z - W AH0 - L EY0
-   CH OW0 P UH1 SH - W AH0 - L EY0
-   S EH0 K EY1 Z - W AH0 - Y IY0
-   CH AH0 K OW1 JH - W AH0 - Y IY0
+   B IH0 T IH1 S - W AH0 - L EY0
+   P EY0 T EH1 S - W AH0 - L EY0
+   P EY0 T IY1 S - W AH0 - L EY0
 L EY0
-   T IH0 G OW1 T - L EY0 - Y IY0
-   Z EY0 JH EH1 F - L EY0 - W AH0
+   N AH0 N UH1 K - L EY0 - Y IY0
 Y IY0
+   D IY0 K IY1 D - Y IY0 - L EY0
+   G UW0 JH OW1 D - Y IY0 - W AH0
    K UH0 K IH1 V - Y IY0 - L EY0
    Z IH0 K UW1 B - Y IY0 - L EY0

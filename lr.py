@@ -81,14 +81,14 @@ if __name__ == "__main__":
 	# ------------ Model hyperparameters ------------ # 
 	MODEL_NAME = "LR"
 
-	TRAINING_DATA_FOLDER = "MajDefault"
-	FILE_PREFIX = "majDefault"
+	TRAINING_DATA_FOLDER = "EqualDefault"
+	FILE_PREFIX = "equalFreq"
 
-	POOLING_FUNC = pool_last # TODO change pooling function
-	POOLING_FUNC_name = "pool_last"
+	# POOLING_FUNC = pool_last # TODO change pooling function
+	# POOLING_FUNC_name = "pool_last"
 
-	# POOLING_FUNC = pool_concat # TODO change pooling function
-	# POOLING_FUNC_name = "pool_concat"
+	POOLING_FUNC = pool_concat # TODO change pooling function
+	POOLING_FUNC_name = "pool_concat"
 	
 	WRITE_RESULT_FOLDER = f"./{TRAINING_DATA_FOLDER}_{POOLING_FUNC_name}_Results_{MODEL_NAME}"
 	# WRITE_RESULT_FOLDER = f"./{TRAINING_DATA_FOLDER}_{POOLING_FUNC_name}_Results_{MODEL_NAME}_featsmini"
@@ -96,23 +96,24 @@ if __name__ == "__main__":
 
 	BATCH_SIZE = 10
 	NUM_EPOCHS = 3
-	NUM_REPEATS = 10 # Repeat LR model training 20 times for more reliable accuracy curve
-	LEARNING_RATE = 0.01
+	NUM_REPEATS = 10 # Repeat LR model training 10 times for more reliable accuracy curve
+	LEARNING_RATE = 0.05 # 0.01 for pool last, 0.05 for pool concat
 
 	VALIDATION_FILE_PREFIX = "test"
 
 	train_data_filepath = f"./{TRAINING_DATA_FOLDER}/{FILE_PREFIX}_train.txt" if TRAINING_DATA_FOLDER != "MinDefault_islands" else f"./{TRAINING_DATA_FOLDER}/{FILE_PREFIX}_train_withIslands.txt"
 
-	# Train classifier
-	train_SGs, train_PLs, train_Ls = process_file(train_data_filepath)
-	X_train, y_train = get_arrays(train_SGs, train_PLs, train_Ls, symbol2feats, suffix2label, pool_func=POOLING_FUNC)
-	# Copy and concatenation X_train and y_train to simulate epochs. Doing so prevents deeply nested training loops
-	X_train = np.concatenate([X_train] * NUM_EPOCHS, axis=0)
-	y_train = np.concatenate([y_train] * NUM_EPOCHS, axis=0)
-	classes = np.unique(y_train)
 
 	class_1_accs, class_2_accs, class_3_accs = [], [], []
 	for i in tqdm(range(NUM_REPEATS)):
+
+		# Train classifier
+		train_SGs, train_PLs, train_Ls = process_file(train_data_filepath)
+		X_train, y_train = get_arrays(train_SGs, train_PLs, train_Ls, symbol2feats, suffix2label, pool_func=POOLING_FUNC)
+		# Copy and concatenation X_train and y_train to simulate epochs. Doing so prevents deeply nested training loops
+		X_train = np.concatenate([X_train] * NUM_EPOCHS, axis=0)
+		y_train = np.concatenate([y_train] * NUM_EPOCHS, axis=0)
+		classes = np.unique(y_train)
 
 		run_class_1_accs, run_class_2_accs, run_class_3_accs = [], [], []
 
