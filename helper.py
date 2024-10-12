@@ -10,8 +10,9 @@ CONS = ["P", "B", "T", "D", "K", "G", "NG", "M", "N", "L", "F",  "V", "S", "Z", 
 VOWELS = ["IH0", "EH0", "AH0", "UH0", "IY0", "UW0", "EY0", "OW0", "IH1", "EH1", "AH1", "UH1", "IY1", "UW1", "EY1", "OW1", "IH2", "EH2", "AH2", "UH2", "IY2", "UW2", "EY2", "OW2"]
 
 def check_dir_exists(directory_path):
-    if not os.path.exists(directory_path):
-        os.makedirs(directory_path)
+	"""Check if the directory exists at directory_path. If not, create the directory"""
+	if not os.path.exists(directory_path):
+		os.makedirs(directory_path)
 
 # ------------ Preprocessing functions ------------ # 
 """Initialize feature and category dictionaries."""
@@ -73,7 +74,7 @@ def get_strings(data_file):
 				print(line)
 				raise Exception("Training data error! All lines should have 2 columns in TD files!")
 			
-	return UR_strings, SR_strings, syll_lengths
+	return UR_strings, SR_strings, syll_lengths    
 
 
 def shuffle_arrays(sgs, pls, lengths):
@@ -90,7 +91,7 @@ def process_file(filepath):
 	return sgs, pls, lengths
 
 
-def get_arrays(UR_strings, SR_strings, syll_lengths, symbol2feats, suffix2label, pool_func, override_max_syll=0):
+def get_arrays(UR_strings, SR_strings, syll_lengths, symbol2feats, suffix2label, pool_func=None, override_max_syll=0):
 	"""
 	symbol2feats: dict[segment -> vector of features]
 	suffix2label: dict[suffix -> int from {0, 1, 2}] 
@@ -119,8 +120,9 @@ def get_arrays(UR_strings, SR_strings, syll_lengths, symbol2feats, suffix2label,
 		Y_list.append(suffix2label[this_sr])
 
 	X = np.array(X_list) # list of vectors
-	X = pool_func(X)
-
+	if pool_func:
+		X = pool_func(X)
+ 
 	Y = np.array(Y_list) # single int
 	return X, Y
 

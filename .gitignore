@@ -1,4 +1,7 @@
 Plots/*
+Data/
+
+*.zip
 *.jpg
 *.rtf
 *.xls
