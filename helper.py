@@ -1,7 +1,9 @@
 import os
-import numpy as np
-from re import sub
 import random
+import numpy as np
+import matplotlib.pyplot as plt
+
+from re import sub
 from random import shuffle
 
 # random.seed(2)
@@ -128,7 +130,19 @@ def get_arrays(UR_strings, SR_strings, syll_lengths, symbol2feats, suffix2label,
 
 
 # ------------ Test Accuracy by Gold Label ------------ #
-def calc_results_by_gold_label(y_test, y_pred, suffix2label, label2suffix):
+def calc_results_by_gold_label(y_test, y_pred, suffix2label=None, label2suffix=None):
+	suffix2label = {
+		"W AH0": 0, #wuh
+		"L EY0": 1, #lay
+		"Y IY0": 2 #yee
+	}
+
+	label2suffix = {
+		0: "W AH0", #wuh
+		1: "L EY0", #lay
+		2: "Y IY0" #yee
+	}
+
 	gold_classes = suffix2label.keys()
 	acc_dict = {gold_class:[] for gold_class in gold_classes}
 	
@@ -149,9 +163,78 @@ def calc_results_by_gold_label(y_test, y_pred, suffix2label, label2suffix):
 		acc_dict[gold_class] = acc
 	return acc_dict
 
+# ------------ Plotting functions ------------ # 
+
+def plot_learning_curve_full(accs, iterations, save_filepath):
+	# plt.figure(figsize=(10, 6))
+	plt.figure(figsize=(10, 6))
+	plt.style.use('ggplot')
+	
+	# Define line styles and colors for each condition
+	line_styles = {
+		"Suffix A": 'dotted',
+		"Suffix B": 'dashed',
+		"Suffix C": 'solid'
+	}
+
+	colors = {
+		"Minority Default": "red",
+		"Equal Frequency": "blue",
+		"Majority Default": "orange"
+	}
+	
+	suffixes = ['Suffix A', 'Suffix B', 'Suffix C']
+	default_conditions = ["Minority Default", "Equal Frequency", "Majority Default"]
+	
+	for suffix in suffixes:
+		for condition in default_conditions:
+			style = line_styles[suffix]
+			color = colors[condition]
+			plt.plot(iterations, accs[condition][suffix], linestyle=style, color=color)
+
+	plt.title(f'Learning curve of logistic regression (pool-last)', fontsize=20, pad=20) # TODO Change pool func
+	plt.xlabel('Number of batches', fontsize=16)
+	plt.ylabel('Average Proportion Correct', fontsize=16)
+	plt.xticks(fontsize=14)
+	plt.yticks(fontsize=14)
+	plt.ylim(0, 1.01)
+	plt.xlim(0, max(iterations))
+
+	
+	# Create custom legends for both suffixes and conditions
+	suffix_legend_lines = [plt.Line2D([0], [0], color='black', linestyle=line_styles[suffix], lw=2) for suffix in suffixes]
+	suffix_legend_labels = suffixes
+	
+	condition_legend_lines = [plt.Line2D([0], [0], color=colors[condition], lw=2) for condition in default_conditions]
+	condition_legend_labels = default_conditions
+	
+	legend1 = plt.legend(suffix_legend_lines, suffix_legend_labels, bbox_to_anchor=(1, 0.4), loc='lower left', title="Correct Suffix", frameon=False, fontsize=12)
+	legend1.set_title("Correct Suffix", prop={'size':16})
+	legend1._legend_box.align = "left"
+	legend2 = plt.legend(condition_legend_lines, condition_legend_labels, bbox_to_anchor=(1, 0.1), loc='lower left', title="Condition", frameon=False, fontsize=12)
+	legend2.set_title("Condition", prop={'size': 16})
+	legend2._legend_box.align = "left"
+	
+	plt.gca().add_artist(legend1)
+	plt.gca().add_artist(legend2)
+
+	plt.subplots_adjust(right=0.8)
+	plt.savefig(save_filepath, format="jpg", dpi=300)
+
 
 # ------------ Test Accuracy by Word Type ------------ #
-def write_results_by_word_type(test_SGs, y_test, y_pred, write_filepath, suffix2label, label2suffix):
+def write_results_by_word_type(test_SGs, y_test, y_pred, write_filepath, suffix2label=None, label2suffix=None):
+	suffix2label = {
+		"W AH0": 0, #wuh
+		"L EY0": 1, #lay
+		"Y IY0": 2 #yee
+	}
+
+	label2suffix = {
+		0: "W AH0", #wuh
+		1: "L EY0", #lay
+		2: "Y IY0" #yee
+	}
 	# Find unique word type (templates) in dataset
 	word_types = set()
 	for sg in test_SGs:

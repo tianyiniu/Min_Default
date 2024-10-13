@@ -70,10 +70,6 @@ def plot_learning_curve(class_1_accs, class_2_accs, class_3_accs, iterations, sa
 	plt.savefig(save_filepath, format="jpg", dpi=300)
 
 
-def get_logits(prediction, model):
-	pass
-		
-
 if __name__ == "__main__":	
 
 	# ------------ Initialize file paths, resource dictionaries ------------ # 
