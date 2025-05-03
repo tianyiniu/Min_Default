@@ -1,3 +1,5 @@
+"""Implements two pooling functions for logistic regression"""
+
 import numpy as np
 
 # ------------ Pooling Functions ------------ # 

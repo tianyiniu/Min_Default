@@ -1,6 +1,8 @@
 Data/
 Archives/
-
+Models/
+Plots/
+__pycache__/
 *.zip
 *.jpg
 *.rtf
